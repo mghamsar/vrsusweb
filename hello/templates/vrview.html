@@ -1,0 +1,68 @@
+{% block content %}
+  <div id="error" class="dialog">
+    <div class="wrap">
+      <h1 class="title">VR Player Test</h1>
+      <p class="message">Press button to change Video focus</p>
+      <div class="col-lg-6">
+        <canvas id="vrcanvas" width="100%" height="375" style="border:1px solid #CCCCCC;">
+
+
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    var canvas = document.getElementById("vrcanvas");
+    console.log(canvas);
+    
+    var videoElement = null;
+    
+    videoElement = document.createElement('video');
+    videoElement.muted = true;
+    videoElement.src = scene.video;
+    videoElement.loop = true;
+    videoElement.setAttribute('crossorigin', 'anonymous');
+    videoElement.addEventListener('canplaythrough', onVideoLoad);
+    videoElement.addEventListener('error', onVideoError);
+
+
+    /*var video = document.createElement("video");
+    video.muted = true;
+    var videoready = false;
+    video.autoplay = false;
+    video.loop = true;
+    video.crossOrigin = "anonymous";
+    video.oncanplay = function(){ videoready=true; }
+    video.width = 620;
+    video.height = 375;
+    video.width = nextPowerOf2(500);
+    video.height = nextPowerOf2(375);*/
+
+  function onVideoLoad() {
+    // Render the stereo video.
+    var params = {
+      isStereo: loadedScene.isStereo,
+    }
+    renderer.set360Video(videoElement, params);
+
+    // On mobile, tell the user they need to tap to start. Otherwise, autoplay.
+    if (!Util.isMobile()) {
+      // Hide loading indicator.
+      loadIndicator.hide();
+      // Autoplay the video on desktop.
+      videoElement.play();
+    } else {
+      // Tell user to tap to start.
+      showError('Tap to start video', 'Play');
+      document.body.addEventListener('touchend', onVideoTap);
+    }
+    // Prevent onVideoLoad from firing multiple times.
+    videoElement.removeEventListener('canplaythrough', onVideoLoad);
+  }
+
+  </script>
+
+  <script src="videos/vrview/build/vrview-analytics.min.js"></script>
+{% endblock %}
