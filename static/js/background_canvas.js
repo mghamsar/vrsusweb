@@ -5,7 +5,7 @@
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
     //canvas.width = 600;
-    canvas.height = 550;
+    //canvas.height = 550;
     var gl = null;
     for (var i=0; i<4; i++)
     {
@@ -51,10 +51,9 @@
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);-
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 
-    console.log("GL OBJEEEEEEEEECT" + gl);
-
+    //console.log("GL OBJEEEEEEEEECT" + gl);
     // load the video
-    var video = document.createElement("video");
+    /*var video = document.createElement("video");
     video.muted = true;
     var videoready = false;
     video.autoplay = false;
@@ -70,7 +69,7 @@
     });
 
     video.src = "../../media/video/sample.mp4"
-    video.play();
+    video.play();*/
 
     function nextPowerOf2(x) {
         return Math.pow(2, Math.ceil(Math.log(x) / Math.log(2)));
@@ -99,14 +98,14 @@
         gl.activeTexture(gl.TEXTURE0);
         //gl.bindTexture(gl.TEXTURE_2D, tex);
 
-       /* if (videoready)
+        if (videoready)
         {
             gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, video);
-        } */
+        }
 
         gl.bindBuffer(gl.ARRAY_BUFFER, vx);
         gl.vertexAttribPointer(vx_ptr, 2, gl.FLOAT, false, 0, 0);
-        //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ix);
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ix);
         gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
 
         window.requestAnimationFrame(frameloop);
