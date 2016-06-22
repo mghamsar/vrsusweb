@@ -43,8 +43,15 @@ h6 {
 }
 
 .intro-canvas { 
-    background: url(../../media/video/sample.mp4) no-repeat center center;
+    background: url(../img/concert.jpg) no-repeat center center;
     background-size: 100% auto;
+    box-shadow: 0px 900px rgba(45, 20, 20, 0.7) inset;
+}
+
+.intro-canvas canvas {
+    width:100%;
+    padding: 0;
+    margin: 0;
 }
 
 .intro-header {
@@ -55,8 +62,23 @@ h6 {
     background-size: 100% auto;
     background-position:center;
     position: absolute;
-    top: 1%;
+    top: 10%;
     left: 10%;
+}
+
+.intro-header .overlay {
+    height:auto;
+    width: 100%;
+    position: fixed;
+    overflow: auto;
+    top: 0px;
+    left: 0px;
+    background: rgba(100, 150, 100, 0.2);
+}
+
+@media(max-width:767px) {
+
+
 }
 
 .intro-message {
@@ -195,19 +217,14 @@ footer {
     background-color: #f8f8f8;
 }
 
-/*footer p.copyright {
-    margin: 25px 15px 0 0;
-    float: right;
-}
-
-/*.compatibleDevices {
-    float: left;
-    width:80%;
+.launching {
+    margin: 0;
+    padding: 0;
 }
 
 .compatibleDevices ul {
-    padding-left:2.6em;
-}*/
+    padding-left:0;
+}
 
 .compatibleDevices li{
     display: inline-block;

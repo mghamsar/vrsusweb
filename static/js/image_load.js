@@ -11,12 +11,12 @@ for (var i=0; i<4; i++)
         break;
 }
 
-var image = new Image();
-image.src = "../../static/img/alibi.jpeg";
+//var image = new Image();
+//image.src = "../../static/img/alibi.jpeg";
 
-image.onload = function() {
-    context.drawImage(image, 0, 0, image.width, image.height, 0,0,canvas.width, canvas.height);
-}
+//image.onload = function() {
+//    context.drawImage(image, 0, 0, image.width, image.height, 0,0,canvas.width, canvas.height);
+//}
 
 function render(image,gl) {
 

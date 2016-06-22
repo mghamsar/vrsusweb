@@ -721,7 +721,6 @@ THREE.LoopRepeat = 2201;
 THREE.LoopPingPong = 2202;
 
 // DEPRECATED
-
 THREE.Projector = function () {
 
 	console.error( 'THREE.Projector has been moved to /examples/js/renderers/Projector.js.' );
